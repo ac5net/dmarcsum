@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feedback xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://dmarc.org/dmarc-xml/0.1">
+  <report_metadata>
+    <org_name>Enterprise Outlook</org_name>
+    <email>dmarc-reports@receiver-b.example</email>
+    <report_id>abcdef-1234</report_id>
+    <date_range><begin>1754179200</begin><end>1754265599</end></date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>example.jp</domain><adkim>r</adkim><aspf>r</aspf>
+    <p>none</p><sp>none</sp><pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>203.0.113.77</source_ip><count>301</count>
+      <policy_evaluated><disposition>none</disposition><dkim>pass</dkim><spf>fail</spf></policy_evaluated>
+    </row>
+    <identifiers><header_from>example.jp</header_from></identifiers>
+    <auth_results>
+      <dkim><domain>example.jp</domain><selector>s2048</selector><result>pass</result></dkim>
+      <dkim><domain>mailer.vendor-b.example</domain><selector>k1</selector><result>pass</result></dkim>
+      <spf><domain>mailer.vendor-b.example</domain><scope>mfrom</scope><result>pass</result></spf>
+    </auth_results>
+  </record>
+</feedback>
