@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata><org_name>relay.example</org_name><email>r@relay.example</email><report_id>p-1</report_id>
+    <date_range><begin>1754179200</begin><end>1754265599</end></date_range></report_metadata>
+  <policy_published><domain>example.jp</domain><adkim>s</adkim><aspf>s</aspf><p>reject</p><sp>reject</sp><pct>25</pct></policy_published>
+  <record>
+    <row><source_ip>2001:db8::1</source_ip><count>60</count>
+      <policy_evaluated><disposition>none</disposition><dkim>fail</dkim><spf>fail</spf>
+        <reason><type>sampled_out</type><comment></comment></reason></policy_evaluated></row>
+    <identifiers><header_from>example.jp</header_from></identifiers>
+    <auth_results><spf><domain>example.jp</domain><scope>helo</scope><result>none</result></spf></auth_results>
+  </record>
+  <record>
+    <row><source_ip>2001:db8::2</source_ip><count>20</count>
+      <policy_evaluated><disposition>reject</disposition><dkim>fail</dkim><spf>fail</spf></policy_evaluated></row>
+    <identifiers><header_from>example.jp</header_from></identifiers>
+    <auth_results><spf><domain>example.jp</domain><scope>mfrom</scope><result>permerror</result></spf></auth_results>
+  </record>
+</feedback>
