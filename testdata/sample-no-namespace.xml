@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<feedback>
+  <report_metadata>
+    <org_name>google.com</org_name>
+    <email>dmarc-reports@receiver-a.example</email>
+    <report_id>1234567890123456789</report_id>
+    <date_range><begin>1754179200</begin><end>1754265599</end></date_range>
+  </report_metadata>
+  <policy_published>
+    <domain>example.jp</domain>
+    <adkim>r</adkim><aspf>r</aspf>
+    <p>none</p><sp>none</sp><pct>100</pct>
+  </policy_published>
+  <record>
+    <row>
+      <source_ip>203.0.113.10</source_ip>
+      <count>128</count>
+      <policy_evaluated><disposition>none</disposition><dkim>pass</dkim><spf>pass</spf></policy_evaluated>
+    </row>
+    <identifiers><header_from>example.jp</header_from></identifiers>
+    <auth_results>
+      <dkim><domain>example.jp</domain><selector>sel1</selector><result>pass</result></dkim>
+      <spf><domain>example.jp</domain><scope>mfrom</scope><result>pass</result></spf>
+    </auth_results>
+  </record>
+  <record>
+    <row>
+      <source_ip>198.51.100.25</source_ip>
+      <count>47</count>
+      <policy_evaluated><disposition>none</disposition><dkim>fail</dkim><spf>fail</spf></policy_evaluated>
+    </row>
+    <identifiers><header_from>example.jp</header_from></identifiers>
+    <auth_results>
+      <spf><domain>bounce.vendor-a.example</domain><scope>mfrom</scope><result>pass</result></spf>
+    </auth_results>
+  </record>
+  <record>
+    <row>
+      <source_ip>192.0.2.200</source_ip>
+      <count>9</count>
+      <policy_evaluated>
+        <disposition>none</disposition><dkim>fail</dkim><spf>fail</spf>
+        <reason><type>forwarded</type><comment>looks forwarded</comment></reason>
+      </policy_evaluated>
+    </row>
+    <identifiers><header_from>example.jp</header_from></identifiers>
+    <auth_results>
+      <dkim><domain>example.jp</domain><selector>sel1</selector><result>temperror</result></dkim>
+      <spf><domain>example.jp</domain><scope>mfrom</scope><result>softfail</result></spf>
+    </auth_results>
+  </record>
+</feedback>
